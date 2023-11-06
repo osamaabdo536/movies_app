@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movies_app/home/splash_screen.dart';
+import 'package:flutter_movies_app/home/popular_movie_carousel_slider.dart';
+import 'package:flutter_movies_app/home/splash/splash_screen.dart';
 import 'package:flutter_movies_app/my_theme.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'home/home_screen.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         builder: (context, child) {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            initialRoute: SplashScreen.routeName,
+            initialRoute: HomeScreen.routeName,
             routes: {
               HomeScreen.routeName: (context) => HomeScreen(),
               SplashScreen.routeName: (context) => SplashScreen(),

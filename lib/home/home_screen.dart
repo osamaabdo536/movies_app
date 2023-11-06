@@ -23,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: MyTheme.blackColor,
       bottomNavigationBar: Theme(
         data: Theme.of(context).copyWith(
-            canvasColor: MyTheme.PrimaryLightColor
+            canvasColor: MyTheme.primaryLightColor
         ),
         child: BottomNavigationBar(
           currentIndex: selectedIndex,
@@ -57,6 +57,6 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
   List<Widget> tabs = [
-    HomeTab(),SearchTab(),BrowseTab(),WatchList()
+    HomeTab(),SearchTab(),BrowseTab(),watchList()
   ];
 }

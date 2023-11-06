@@ -1,98 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_movies_app/home/cubit/movies_view_model.dart';
+import 'package:flutter_movies_app/home/recommended_list.dart';
+import 'package:flutter_movies_app/home/popular_movie_carousel_slider.dart';
+import 'package:flutter_movies_app/home/up_coming_list.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../my_theme.dart';
 
+class HomeTab extends StatefulWidget {
+  @override
+  State<HomeTab> createState() => _HomeTabState();
+}
 
-class HomeTab extends StatelessWidget {
+class _HomeTabState extends State<HomeTab> {
+  MoviesViewModel viewModel = MoviesViewModel();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: MyTheme.blackColor,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(height: 220,width: double.infinity,
-            child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                physics: const BouncingScrollPhysics(),
-                itemCount: 10,
-                itemBuilder: (context,index){
-                  return Padding(
-                    padding: const EdgeInsets.all(6),
-                    child: ClipRRect(
-                      child: Container(
-                        color: Colors.orange,
-                        height: 200,
-                        width: 300,
-                      ),
-                    ),
-                  );
-                }
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            PopularMoviesCarouselSlider(),
+            SizedBox(
+              height: 20.h,
             ),
-          ),
-
-          const SizedBox(height: 20,),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text('New Releases',style: TextStyle(
-                color: MyTheme.whiteColor,fontSize: 20,
-              ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 18,),
-          SizedBox(height: 150,width: double.infinity,
-            child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                physics: const BouncingScrollPhysics(),
-                itemCount: 10,
-                itemBuilder: (context,index){
-                  return Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: ClipRRect(
-                      child: Container(
-                        color: Colors.orange,
-                        height: 200,
-                        width: 90,
-                      ),
-                    ),
-                  );
-                }
+            UpComingList(),
+            SizedBox(
+              height: 18.h,
             ),
-          ),
-          const SizedBox(height: 18,),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text('Recomended',style: TextStyle(
-                color: MyTheme.whiteColor,fontSize: 20,
-              ),
-              ),
-            ],
-          ),
-          SizedBox(height: 170,width: double.infinity,
-            child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                physics: const BouncingScrollPhysics(),
-                itemCount: 10,
-                itemBuilder: (context,index){
-                  return Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: ClipRRect(
-                      child: Container(
-                        color: Colors.orange,
-                        height: 200,
-                        width: 90,
-                      ),
-                    ),
-                  );
-                }
-            ),
-          ),
-        ],
+            RecommendedList(),
+          ],
+        ),
       ),
-
     );
   }
 }
-
